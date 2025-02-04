@@ -8,7 +8,7 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        return view('survey');
+        return view('surveytest');
     }
 
     public function store(Request $request)

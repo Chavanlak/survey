@@ -21,5 +21,9 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('test');
 });
-Route::get('/survey', [FeedbackController::class, 'index']);
-Route::post('/survey', [FeedbackController::class, 'store']);
+Route::get('/surveytest', [FeedbackController::class, 'index']);
+Route::post('/surveytest', [FeedbackController::class, 'store']);
+
+Route::get('/survey', function () {
+    return view('survey');
+});
