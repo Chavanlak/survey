@@ -15,5 +15,13 @@ class AnswerRepository{
     public static function getAnswerById($IdAnswer){
         return Answer::where('IdAnswer','=',$IdAnswer)->first();
     }
+    public static function Answer($name,$phone,$email,$comment){
+        $ans = new Answer();
+        $ans->name = $name;
+        $ans->phone = $phone;
+        $ans->email = $email;
+        $ans->comment = $comment;
+        
+    }
 }
 ?>

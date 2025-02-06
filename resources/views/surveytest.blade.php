@@ -97,7 +97,7 @@
             <span class="emoji" data-value="5">😍</span> --}}
         </div>
         <div class="emoji" data-value="2">😞</div>
-        <div class="emoji" data-value="3">😐</div>
+        <div class="emoji" data-value="3">😐</div>  
         <div class="emoji" data-value="4">😊</div>
         <div class="emoji" data-value="5">😍</div>
         <input type="hidden" name="rating" id="rating" required>
