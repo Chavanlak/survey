@@ -16,9 +16,6 @@ class QuestionRepository{
     public static function getQuestionId($IdQuestion){
         return Question::where('IdQuestion ','=',$IdQuestion);
     }
-    //ดึง forien key
-    public static function getIdQuesionbyAnswer($IdQuestion){
-       
-    }
+  
 }
 ?>

@@ -34,6 +34,9 @@ Route::get('/thankyou', function () {
 });
 Route::get('show',[QuestionController::class,'getAll']);
 
+Route::get('/surveyForm', function () {
+    return view('surveyForm');
+});
 // Route::get('/', function () {
 //     $sting = 'hey there';
 //     $qrcode = Qrcode::genarate($string);

@@ -14,22 +14,6 @@ class QuestionController extends Controller
     public static function showQuestion(){
         return view('Showsurvey');
     }
-    public static function getQuestion(Request $request){
-        $question = $request->question;
-
-    }
-    public static function getAnswer(Request $request){
-        $answer = $request->answer;
-        $question = $request->question;
-
-        $name = $request->name;
-        $phone = $request->phone;
-        $email = $request->email;
-        $comment = $request->comment;
-
-
-
-
-    }
+   
     
 }

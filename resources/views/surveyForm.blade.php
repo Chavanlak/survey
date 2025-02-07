@@ -33,8 +33,9 @@
             display: flex;
             gap: 5px;
         }
-        .required::after{
-            content:"*";
+
+        .required::after {
+            content: "*";
             color: red;
             font-size: 20px;
         }
@@ -62,7 +63,7 @@
 
         <div>
             <div class="form">
-                <form method="" action=""></form>
+                <form method="POST" action=""></form>
                 <label for="MemberID" class="required">ชื่อลูกค้า</label>
                 <input type="text" class="form-control me-2" id="MemberID"name="MemberID" placeholder="ชื่อลูกค้า">
                 <div class="d-grid gap-2"></div>
@@ -79,7 +80,16 @@
                 <div class="d-grid gap-2"></div>
             </div>
         </div>
-            <div class="my-3">
+        
+        @foreach ($question as $qa)
+            <p>{{ $qa->question }}</p>
+        @endforeach
+        @foreach ($collection as $item)
+            
+        @endforeach
+
+    </div>
+    {{-- <div class="my-3">
                 <p>คุณภาพอาหาร (Food Quality)</p>
                 <div class="emoji-group">
                     <div class="emoji" data-value="1">😡</div>
@@ -132,18 +142,18 @@
         <div class="my-3">
             <button type="submit">Submit</button>
         </div>
+ --}}
 
-
-        <script>
-            document.querySelectorAll('.emoji-group').forEach(group => {
-                group.addEventListener('click', function(event) {
-                    if (event.target.classList.contains('emoji')) {
-                        group.querySelectorAll('.emoji').forEach(emoji => emoji.classList.remove('selected'));
-                        event.target.classList.add('selected');
-                    }
-                });
+    <script>
+        document.querySelectorAll('.emoji-group').forEach(group => {
+            group.addEventListener('click', function(event) {
+                if (event.target.classList.contains('emoji')) {
+                    group.querySelectorAll('.emoji').forEach(emoji => emoji.classList.remove('selected'));
+                    event.target.classList.add('selected');
+                }
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
