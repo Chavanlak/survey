@@ -14,6 +14,7 @@ class QuestionController extends Controller
     public static function showQuestion(){
         return view('Showsurvey');
     }
+    
    
     
 }

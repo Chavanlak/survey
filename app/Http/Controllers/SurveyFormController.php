@@ -18,7 +18,7 @@ public static function saveform(Request $request) {
     $email = $request->email;
     $comment = $request->comment;
     
-    SurveyformRepository::saveform($date,$name,$email,$comment,$phone);
+    SurveyformRepository::Info($date,$name,$email,$comment,$phone);
 
   
 }
@@ -30,4 +30,9 @@ public static function getChoice($IdChoice){
     $choice = ChoiceRepository::getChoiceById($IdChoice);
     return view('SurveyForm',compact('choice'));
 }
+
+public static function getInfo($date,$name,$email,$comment,$phone){
+    $data = SurveyformRepository::Info($date,$name,$email,$comment,$phone);
+      return $data;
+  }
 }

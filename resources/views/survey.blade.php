@@ -62,23 +62,33 @@
 
         <div>
             <div class="form">
-                <form method="" action=""></form>
+                <form method="POST" action="/"></form>
                 <label for="MemberID" class="required">ชื่อลูกค้า</label>
-                <input type="text" class="form-control me-2" id="MemberID"name="MemberID" placeholder="ชื่อลูกค้า">
+                <input type="text" class="form-control me-2" id="MemberID"name="MemberID" placeholder="ชื่อลูกค้า" value="{{$name}}">
                 <div class="d-grid gap-2"></div>
             </div>
             <div>
                 <label for="MemberID" class="required">เบอร์โทรลูกค้า</label>
-                <input type="text" class="form-control me-2" id="MemberID"name="MemberID"
-                    placeholder="เบอร์โทรลูกค้า">
+                <input type="text" class="form-control me-2" id="MemberID"name="MemberID"placeholder="เบอร์โทรลูกค้า" value="{{$phone}}">
                 <div class="d-grid gap-2"></div>
             </div>
             <div>
                 <label for="MemberID" class="form-label">อีเมล</label>
-                <input type="text" class="form-control me-2" id="MemberID"name="MemberID" placeholder="อีเมล">
+                <input type="text" class="form-control me-2" id="MemberID"name="MemberID" placeholder="อีเมล" value="{{$email}}">
                 <div class="d-grid gap-2"></div>
             </div>
         </div>
+        @foreach ($section->question as $question)
+            @foreach ($question as $choice)
+            <div class="emoji-group">
+                <div class="emoji" data-value="1">😡</div>
+                <div class="emoji" data-value="2">😞</div>
+                <div class="emoji" data-value="3">😐</div>
+                <div class="emoji" data-value="4">😊</div>
+                <div class="emoji" data-value="5">😍</div>
+            </div>
+            @endforeach
+        @endforeach
             <div class="my-3">
                 <p>คุณภาพอาหาร (Food Quality)</p>
                 <div class="emoji-group">

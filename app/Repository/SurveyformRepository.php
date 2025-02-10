@@ -12,8 +12,8 @@ class SurveyformRepository{
    public static function getAllSurveyForm(){
     return Surveyform::all();
    }
-   public static function saveform($date,$name,$email,$comment,$phone){
-    $data = new Surveyform();
+   public static function Info($date,$name,$email,$comment,$phone){
+   $data = new Surveyform();
    $data->date = $date;
    $data->name = $name;
    $data->phone = $phone;
@@ -21,6 +21,9 @@ class SurveyformRepository{
    $data->comment = $comment;
    $data->save();
 
+   }
+   public static function addInfo($date,$name,$email,$comment,$phone,$IdQuestion,$IdAnswer){
+      
    }
   
 }

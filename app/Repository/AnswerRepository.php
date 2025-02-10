@@ -15,6 +15,22 @@ class AnswerRepository{
     public static function getAnswerById($IdAnswer){
         return Answer::where('IdAnswer','=',$IdAnswer)->first();
     }
+    public static function getAnswerByQuestionSurveyForm($IdQuestion,$IdChoice,$IdSurveyform){
+        $answer = Answer::where('answer.IdQuestion','=',$IdQuestion)->where('answer.IdChoice','=',$IdChoice)->where('answer.IdSurveyForm','=',$IdSurveyform);
+        return $answer;
+    }
+    public static function getQuestionWithId($IdQuestion){
+        $answer = Answer::where('answer.IdQuestion','=',$IdQuestion);
+        return $answer;
+    }
+    public static function getChoiceEithId($IdChoice){
+        $answer = Answer::where('answer.IdChoice','=',$IdChoice);
+        return $answer;
+    }
+    public static function getSurveyFormwithId($IdSurveyForm){
+        $answer = Answer::where('answer.IdSurveyForm','=',$IdSurveyForm);
+        return $answer;
+    }
 
 }
 ?>
