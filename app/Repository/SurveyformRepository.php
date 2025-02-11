@@ -12,15 +12,15 @@ class SurveyformRepository{
    public static function getAllSurveyForm(){
     return Surveyform::all();
    }
-   public static function Info($date,$name,$email,$comment,$phone){
+   public static function Info($name,$email,$comment,$phone){
    $data = new Surveyform();
-   $data->date = $date;
+   // $data->date = $date;
    $data->name = $name;
    $data->phone = $phone;
    $data->email = $email;
    $data->comment = $comment;
    $data->save();
-
+      
    }
    public static function addInfo($date,$name,$email,$comment,$phone,$IdQuestion,$IdAnswer){
       

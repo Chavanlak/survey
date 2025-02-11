@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\SurveyFormController;
 use SimpleSoftwareIO\Qrcode\Facades\Qrcode;
 
 /*
@@ -33,10 +36,18 @@ Route::get('/thankyou', function () {
     return view('thankyou');
 });
 Route::get('show',[QuestionController::class,'getAll']);
-
+Route::get('show',[ChoiceController::class,'getAllc']);
 Route::get('/surveyForm', function () {
     return view('surveyForm');
 });
+Route::get('/testview', function () {
+    return view('testview');
+});
+Route::get('/submit', [SurveyFormController::class, 'getMet']);
+Route::post('/submit',[SurveyFormController::class,'saveInfo'])->name('survey.save');
+
+Route::get('/survey',[AnswerController::class,'getInfoTorate']);
+Route::post('/survey',[AnswerController::class,'saveInfo']);
 // Route::get('/', function () {
 //     $sting = 'hey there';
 //     $qrcode = Qrcode::genarate($string);

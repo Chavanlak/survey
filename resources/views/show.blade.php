@@ -7,9 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach ($data as $qa)
+    {{-- @foreach ($data as $qa)
     <p>{{$qa->question}}</p>
+   
+    @endforeach --}}
+    @foreach ($data2 as $ch)
+    <p>{{$ch->choice}}</p>
     @endforeach
-
+    {{-- <p>{{$qa->name}}</p> --}}
 </body>
 </html>

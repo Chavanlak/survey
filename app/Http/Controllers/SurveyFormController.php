@@ -35,4 +35,41 @@ public static function getInfo($date,$name,$email,$comment,$phone){
     $data = SurveyformRepository::Info($date,$name,$email,$comment,$phone);
       return $data;
   }
+//   public static function saveInfo(Request $request){
+//    $name = $request->name;
+//    $date = $request->date;
+//    $email = $request->email;
+//    $phone = $request->phone;
+//    $comment = $request->comment;
+//    SurveyformRepository::Info($name,$date,$email,$phone,$comment);
+//    return redirect()->back()->with('sucees','Survey submit');
+//   }
+public function getMet()
+{
+    return view('submit');
+}
+public function saveInfo(Request $request)
+{
+    // Validate Input
+    $request->validate([
+    
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:20',
+        'email' => 'required|email|max:255',
+        'comment' => 'nullable|string',
+    ]);
+
+    // Call repository method to save data
+    SurveyformRepository::Info(
+        
+        $request->name,
+        $request->email,
+        $request->comment,
+        $request->phone,
+        
+    );
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'Survey submitted successfully!');
+}
 }

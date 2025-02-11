@@ -16,6 +16,9 @@ class QuestionRepository{
     public static function getQuestionId($IdQuestion){
         return Question::where('IdQuestion ','=',$IdQuestion);
     }
-  
+    
+    public static function getAllQuestion(){
+        return Question::all();
+    }
 }
 ?>

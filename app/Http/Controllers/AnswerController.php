@@ -44,9 +44,27 @@ class AnswerController extends Controller
         $comment = $request->comment;
         $phone = $request->phone;
         SurveyformRepository::Info($date,$name,$email,$comment,$phone);
-        $IdQuestion = $request->IdQuestion;
-
+        // $IdQuestion = $request->IdQuestion;
+        // QuestionRepository::getQuestionId($IdQuestion);
         return view('survey');
 
+    }
+    public static function pull(){
+        return('surveytest');
+    }
+    public static function getInfoTorate(Request $request){
+        $name = $request->name;
+        $email = $request->email;
+        $comment = $request->comment;
+        $phone = $request->phone;
+        SurveyformRepository::Info($name,$email,$comment,$phone);
+        $question = $request->question;
+        QuestionRepository::getQuestionId($question);
+        $choice = $request->choice;
+        $Idchoice = $request->Idchoice;
+        ChoiceRepository::getallchoice($choice,$Idchoice);
+        // return view('surveytest');
+        // return redirect()->back()->with('success', 'Survey submitted successfully!');
+        return redirect('/thankyou'); 
     }
 }

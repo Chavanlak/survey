@@ -9,6 +9,9 @@ class ChoiceRepository{
    public static function getChoiceById($Idchoice){
     return Choice::where('Idchoice','=',$Idchoice);
    }
+   public static function getallchoice(){
+      return Choice::all();
+   }
   
 }
 ?>
