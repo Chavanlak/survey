@@ -27,7 +27,7 @@ class AnswerController extends Controller
         return view('survey',compact('question'));
     }
     // public static function getChoiceInAnswer(){
-    //     $answerList = 
+    //     $answerList =
     // }
     public static function getAnswer($IdQuestion,$Idchoice,$IdSurveyForm){
         $question = QuestionRepository::getQuestionId($IdQuestion);
@@ -50,21 +50,49 @@ class AnswerController extends Controller
 
     }
     public static function pull(){
-        return('surveytest');
+        return view('surveytest');
     }
     public static function getInfoTorate(Request $request){
         $name = $request->name;
         $email = $request->email;
         $comment = $request->comment;
         $phone = $request->phone;
-        SurveyformRepository::Info($name,$email,$comment,$phone);
-        $question = $request->question;
-        QuestionRepository::getQuestionId($question);
-        $choice = $request->choice;
-        $Idchoice = $request->Idchoice;
-        ChoiceRepository::getallchoice($choice,$Idchoice);
-        // return view('surveytest');
-        // return redirect()->back()->with('success', 'Survey submitted successfully!');
-        return redirect('/thankyou'); 
+
+        $ques1 = $request->ques1;
+        $ch1 = $request->ch1;
+
+        $ques2 = $request->ques2;
+        $ch2 = $request->ch2;
+
+        $ques3 = $request->ques3;
+        $ch3 = $request->ch3;
+
+        $ques4 = $request->ques4;
+        $ch4 = $request->ch4;
+        $IdSurveyForm = SurveyformRepository::Info($name,$email,$comment,$phone);
+        // echo('surveyform Id is'." ".$IdSurveyForm);
+        AnswerRepository::saveAnswer($ques1,$ch1,$IdSurveyForm);
+        AnswerRepository::saveAnswer($ques2,$ch2,$IdSurveyForm);
+        AnswerRepository::saveAnswer($ques3,$ch3,$IdSurveyForm);
+        AnswerRepository::saveAnswer($ques4,$ch4,$IdSurveyForm);
+
+        // echo($name);
+        // echo($email);
+        // echo($comment);
+        // echo($phone);
+        // echo($ques1." ".$ch1);
+        // echo($ques2." ".$ch2);
+        // echo($ques3." ".$ch3);
+        // echo($ques4." ".$ch4);
+        // SurveyformRepository::Info($name,$email,$comment,$phone);
+        // $question = $request->question;
+        // QuestionRepository::getQuestionId($question);
+        // $choice = $request->choice;
+        // $Idchoice = $request->Idchoice;
+        // ChoiceRepository::getallchoice($choice,$Idchoice);
+        // // return view('surveytest');
+        // // return redirect()->back()->with('success', 'Survey submitted successfully!');
+        return redirect('/thankyou');
     }
+
 }

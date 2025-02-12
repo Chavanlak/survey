@@ -25,8 +25,8 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('test');
 });
-Route::get('/surveytest', [FeedbackController::class, 'index']);
-Route::post('/surveytest', [FeedbackController::class, 'store']);
+// Route::get('/surveytest', [FeedbackController::class, 'index']);
+// Route::post('/surveytest', [FeedbackController::class, 'store']);
 
 Route::get('/survey', function () {
     return view('survey');
@@ -46,10 +46,12 @@ Route::get('/testview', function () {
 Route::get('/submit', [SurveyFormController::class, 'getMet']);
 Route::post('/submit',[SurveyFormController::class,'saveInfo'])->name('survey.save');
 
-Route::get('/survey',[AnswerController::class,'getInfoTorate']);
-Route::post('/survey',[AnswerController::class,'saveInfo']);
+// Route::get('/survey',[AnswerController::class,'getInfoTorate']);
+// Route::post('/survey',[AnswerController::class,'saveInfo']);
 // Route::get('/', function () {
 //     $sting = 'hey there';
 //     $qrcode = Qrcode::genarate($string);
 //     return view('qr');
 // });
+Route::get('/surveyform',[AnswerController::class,'pull']);
+Route::post('/surveytest',[AnswerController::class,'getInfoTorate']);

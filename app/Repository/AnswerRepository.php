@@ -31,6 +31,15 @@ class AnswerRepository{
         $answer = Answer::where('answer.IdSurveyForm','=',$IdSurveyForm);
         return $answer;
     }
+    public static function saveAnswer($IdQuestion,$IdChoice,$IdSurveyForm){
+        $ansobj = new Answer();
+        $ansobj->IdQuestion = $IdQuestion;
+        $ansobj->Idchoice = $IdChoice;
+
+        $ansobj->IdSurveyform = $IdSurveyForm;
+        $ansobj->save();
+        return $ansobj->IdAnswer;
+    }
 
 }
 ?>
