@@ -75,16 +75,24 @@ class AnswerController extends Controller
 
         $ques4 = $request->ques4;
         $ch4 = $request->ch4;
+<<<<<<< HEAD
         // MastbranchinfoRepository::selectbranch($branches);
         MastbranchinfoRepository::getlocation($branch);
         // MastbranchinfoRepository::selectbranch($branch);
         $IdSurveyForm = SurveyformRepository::Info($name,$email,$comment,$phone,$branch);
+=======
+        $IdSurveyForm = SurveyformRepository::Info($name,$email,$comment,$phone);
+>>>>>>> 77237b9f0565d18aed870e7ba782f5e7f04d6e38
         // echo('surveyform Id is'." ".$IdSurveyForm);
         AnswerRepository::saveAnswer($ques1,$ch1,$IdSurveyForm);
         AnswerRepository::saveAnswer($ques2,$ch2,$IdSurveyForm);
         AnswerRepository::saveAnswer($ques3,$ch3,$IdSurveyForm);
         AnswerRepository::saveAnswer($ques4,$ch4,$IdSurveyForm);
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> 77237b9f0565d18aed870e7ba782f5e7f04d6e38
         // echo($name);
         // echo($email);
         // echo($comment);
@@ -103,9 +111,12 @@ class AnswerController extends Controller
         // // return redirect()->back()->with('success', 'Survey submitted successfully!');
         return redirect('/thankyou');
     }
+<<<<<<< HEAD
     public static function getlocation(Request $request){
         $kuay = MastbranchinfoRepository::getlocation($request->location);
         return view('surveyform',compact('kuay'));
     }
+=======
+>>>>>>> 77237b9f0565d18aed870e7ba782f5e7f04d6e38
 
 }
