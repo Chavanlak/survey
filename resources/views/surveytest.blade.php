@@ -33,8 +33,9 @@
             display: flex;
             gap: 5px;
         }
-        .required::after{
-            content:"*";
+
+        .required::after {
+            content: "*";
             color: red;
             font-size: 20px;
         }
@@ -49,112 +50,152 @@
             <p>Satisfaction Survey</p>
         </div>
 
-        <div class="btn-group my-6" style="margin: auto">
-            <button type="button" class="btn btn-secondary dropdown-toggle my-3" data-bs-toggle="dropdown">
-                กรุณาเลือกสาขาที่คุณใช้บริการในครั้งนี้
-            </button>
-            <ul class="dropdown-menu">
-                <li><button class="dropdown-item" type="button">สาขา1</button></li>
-                <li><button class="dropdown-item" type="button">สาขา2</button></li>
-                <li><button class="dropdown-item" type="button">สาขา3</button></li>
-            </ul>
-        </div>
 
-        <div>
-            <div class="form">
-                {{-- <form method="POST" action="/"></form> --}}
-                <label for="MemberID" class="required">ชื่อลูกค้า</label>
-                <input type="text" class="form-control me-2" id="MemberID"name="MemberID" placeholder="ชื่อลูกค้า">
-                <div class="d-grid gap-2"></div>
+        <form action="/surveytest" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="btn-group my-6" style="margin: auto">
+                <select name="branch" id="">
+                    <button type="button" class="btn btn-secondary dropdown-toggle my-3" data-bs-toggle="dropdown">
+                        กรุณาเลือกสาขาที่คุณใช้บริการในครั้งนี้
+                    </button>
+                    <option value="">กรุณาเลือกสาขา</option>
+                    {{-- @foreach ($branch as $bb)
+                    <option value="branch">{{$bb->location}}</option>
+                @endforeach --}}
+                    <option value="b1">ภูเก็ต</option>
+                    <option value="b2">กรุงเทพ</option>
+                    <option value="b3">นคร</option>
+                </select>
+
             </div>
+            {{-- <div class="my-3">
+                <label for="">กรุณาเลือกสาขาในครั้งนี้</label>
+                <select name="branches" id="" class="form-select">
+                <option value="">กรุณาเลือกสาขา</option>
+                @foreach ($branches as $branch)
+                    <option value="">{{ $branch->location }}</option>
+                    {{ $branch->location }}
+                @endforeach
+            </select>
+            </div> --}}
+            {{-- <div class="my-3">
+                <label for="">กรุณาเลือกสาขาในครั้งนี้</label>
+                <select name="branches" id="">
+                <option value="">กรุณาเลือกสาขา</option>
+                @foreach ($branches as $branch)
+                    <option value="">{{ $branch }}</option>
+                @endforeach
+            </select>
+            </div> --}}
             <div>
-                <label for="MemberID" class="required">เบอร์โทรลูกค้า</label>
-                <input type="text" class="form-control me-2" id="MemberID"name="MemberID"placeholder="เบอร์โทรลูกค้า" >
-                <div class="d-grid gap-2"></div>
+
+                <div class="form">
+                    {{-- <form method="POST" action="/"></form> --}}
+                    <label for="MemberID" class="required">ชื่อลูกค้า</label>
+                    <input type="text" class="form-control me-2" name="name" placeholder="ชื่อลูกค้า">
+                    <div class="d-grid gap-2"></div>
+                </div>
+                <div>
+                    <label for="MemberID" class="required">เบอร์โทรลูกค้า</label>
+                    <input type="text" class="form-control me-2" name="phone" placeholder="เบอร์โทรลูกค้า">
+                    <div class="d-grid gap-2"></div>
+                </div>
+                <div>
+                    <label for="MemberID" class="form-label">อีเมล</label>
+                    <input type="text" class="form-control me-2" name="email" placeholder="อีเมล">
+                    <div class="d-grid gap-2"></div>
+                </div>
             </div>
-            <div>
-                <label for="MemberID" class="form-label">อีเมล</label>
-                <input type="text" class="form-control me-2" id="MemberID"name="MemberID" placeholder="อีเมล" >
-                <div class="d-grid gap-2"></div>
-            </div>
-        </div>
-   
-            <div class="emoji-group">
-                <div class="emoji" data-value="1">😡</div>
-                <div class="emoji" data-value="2">😞</div>
-                <div class="emoji" data-value="3">😐</div>
-                <div class="emoji" data-value="4">😊</div>
-                <div class="emoji" data-value="5">😍</div>
-            </div>
-      
-   
+
+
+
+
             <div class="my-3">
                 <p>คุณภาพอาหาร (Food Quality)</p>
-                <div class="emoji-group">
-                    <div class="emoji" data-value="1">😡</div>
-                    <div class="emoji" data-value="2">😞</div>
-                    <div class="emoji" data-value="3">😐</div>
-                    <div class="emoji" data-value="4">😊</div>
-                    <div class="emoji" data-value="5">😍</div>
-                </div>
+                {{-- <input type="hidden" name="ques1" value="1"> --}}
+                {{-- <input type="radio" name="ques1" value="1"> --}}
+                {{-- <label for="ans1">Choose a car:</label> --}}
+                {{-- <select class="emoji-group" name="ch1" id="ans1"> --}}
+                    <input type="radio"value="1">
+                    <label for="html">😡</label>
+                    <input type="radio" value="2">
+                    <label for="css">😞</label>
+                    <input type="radio"  value="3">
+                    <label for="javascript">😐</label>
+                    <input type="radio"   value="4">
+                    <label for="javascript">😊</label>
+                    <input type="radio"  value="5">
+                    <label for="javascript">😍</label>
+
+                    {{-- <option class="emoji" value="1">😡</option>
+                    <option class="emoji" value="2" selected>😞</option>
+                    <option class="emoji" value="3">😐</option>
+                    <option class="emoji" value="4">😊</option>
+                    <option class="emoji" value="5">😍</option> --}}
+                {{-- </select> --}}
+
             </div>
 
             <div class="my-3">
                 <p>รสชาติอาหาร (Taste)</p>
-                <div class="emoji-group">
-                    <div class="emoji" data-value="1">😡</div>
-                    <div class="emoji" data-value="2">😞</div>
-                    <div class="emoji" data-value="3">😐</div>
-                    <div class="emoji" data-value="4">😊</div>
-                    <div class="emoji" data-value="5">😍</div>
-                </div>
+                <input type="hidden" name="ques2" value="2">
+                <label for="ans2">Choose a car:</label>
+                <select class="emoji-group" name="ch2" id="ans2">
+                    <option class="emoji" value="1" selected>😡</option>
+                    <option class="emoji" value="2">😞</option>
+                    <option class="emoji" value="3">😐</option>
+                    <option class="emoji" value="4">😊</option>
+                    <option class="emoji" value="5">😍</option>
+                </select>
             </div>
 
             <div class="my-3">
                 <p>ความรวดเร็วในการให้บริการ (Speed of Service)</p>
-                <div class="emoji-group">
-                    <div class="emoji" data-value="1">😡</div>
-                    <div class="emoji" data-value="2">😞</div>
-                    <div class="emoji" data-value="3">😐</div>
-                    <div class="emoji" data-value="4">😊</div>
-                    <div class="emoji" data-value="5">😍</div>
-                </div>
+                <input type="hidden" name="ques3" value="5">
+                <label for="ans3">Choose a car:</label>
+                <select class="emoji-group" name="ch3" id="ans3">
+                    <option class="emoji" value="1" selected>😡</option>
+                    <option class="emoji" value="2">😞</option>
+                    <option class="emoji" value="3">😐</option>
+                    <option class="emoji" value="4">😊</option>
+                    <option class="emoji" value="5">😍</option>
+                </select>
             </div>
             <div class="my-3">
                 <p>ความดูเเลเอาใจใส่ของพนักงาน (Service Mind)</p>
-                <div class="emoji-group">
-                    <div class="emoji" data-value="1">😡</div>
-                    <div class="emoji" data-value="2">😞</div>
-                    <div class="emoji" data-value="3">😐</div>
-                    <div class="emoji" data-value="4">😊</div>
-                    <div class="emoji" data-value="5">😍</div>
-                </div>
+                <input type="hidden" name="ques4" value="6">
+                <label for="ans4">Choose a car:</label>
+                <select class="emoji-group" name="ch4" id="ans4">
+                    <option class="emoji" value="1" selected>😡</option>
+                    <option class="emoji" value="2">😞</option>
+                    <option class="emoji" value="3">😐</option>
+                    <option class="emoji" value="4">😊</option>
+                    <option class="emoji" value="5">😍</option>
+                </select>
             </div>
             <div>
                 <p>ข้อเสนอเเนะ</p>
                 <div>
-                    <textarea name="" id=""></textarea>
+                    <textarea name="comment" id=""></textarea>
                 </div>
 
             </div>
-        </div>
-        <div class="my-3">
-            <a href="/thankyou">
-                <button type="button">Submit</button>
-            </a>
-        </div>
+    </div>
+    <div class="my-3">
+        <input type="submit" value="submit">
+    </div>
+    </form>
 
-
-        <script>
-            document.querySelectorAll('.emoji-group').forEach(group => {
-                group.addEventListener('click', function(event) {
-                    if (event.target.classList.contains('emoji')) {
-                        group.querySelectorAll('.emoji').forEach(emoji => emoji.classList.remove('selected'));
-                        event.target.classList.add('selected');
-                    }
-                });
+    <script>
+        document.querySelectorAll('.emoji-group').forEach(group => {
+            group.addEventListener('click', function(event) {
+                if (event.target.classList.contains('emoji')) {
+                    group.querySelectorAll('.emoji').forEach(emoji => emoji.classList.remove('selected'));
+                    event.target.classList.add('selected');
+                }
             });
-        </script>
+        });
+    </script>
 </body>
 
 </html>

@@ -66,6 +66,7 @@ public function saveInfo(Request $request)
         $request->email,
         $request->comment,
         $request->phone,
+        $request->branch
         
     );
 

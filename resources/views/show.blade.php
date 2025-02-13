@@ -7,13 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    {{-- @foreach ($data as $qa)
-    <p>{{$qa->question}}</p>
-   
-    @endforeach --}}
-    @foreach ($data2 as $ch)
-    <p>{{$ch->choice}}</p>
-    @endforeach
-    {{-- <p>{{$qa->name}}</p> --}}
-</body>
+  @foreach ($branch as $bb)
+      <p>{{$bb->MBranchInfo_Code }}</p>
+      <p>{{$bb->MBranchInfo_Name }}</p>
+  @endforeach
 </html>

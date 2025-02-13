@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ChoiceController extends Controller
 {
-    public static function getAllc(){
-        $data2 = ChoiceRepository::getallchoice();
-        return view('show',['data2'=>$data2]);
+    // public static function getAllc(){
+    //     $data2 = ChoiceRepository::getallchoice();
+    //     return view('show',['data2'=>$data2]);
       
-    }
+    // }
 }

@@ -79,13 +79,7 @@
             </div>
         </div>
    
-            <div class="emoji-group">
-                <div class="emoji" data-value="1">😡</div>
-                <div class="emoji" data-value="2">😞</div>
-                <div class="emoji" data-value="3">😐</div>
-                <div class="emoji" data-value="4">😊</div>
-                <div class="emoji" data-value="5">😍</div>
-            </div>
+          
       
    
             <div class="my-3">
